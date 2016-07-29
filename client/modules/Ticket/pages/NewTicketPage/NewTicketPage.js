@@ -1,11 +1,13 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
+import NewTicketForm from '../../NewTicketForm/NewTicketForm';
+
 class NewTicketPage extends Component {
   render() {
     return (
       <div>
-        <h1>NewTicketPage</h1>
+        <NewTicketForm />
       </div>
     );
   }
