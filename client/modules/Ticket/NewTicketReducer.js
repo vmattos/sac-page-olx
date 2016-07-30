@@ -17,7 +17,7 @@ const NewTicketReducer = (state = initialState, action) => {
     case UPDATE_TICKET_STATE:
       return {
         ...state,
-        type: action.ticketState,
+        state: action.ticketState,
       };
 
     default:

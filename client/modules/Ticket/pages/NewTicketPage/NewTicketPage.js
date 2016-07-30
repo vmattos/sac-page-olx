@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateTicketType } from '../../NewTicketActions';
+import { updateState } from '../../NewTicketActions';
 
 import NewTicketForm from '../../NewTicketForm/NewTicketForm';
 
@@ -20,8 +20,7 @@ class NewTicketPage extends Component {
 
   handleSelect(e) {
     const target = e.nativeEvent.target
-    console.log(target.name, target.value)
-    this.props.dispatch(updateTicketType(target.value))
+    this.props.dispatch(updateState(target.name)(target.value))
   }
 
   render() {

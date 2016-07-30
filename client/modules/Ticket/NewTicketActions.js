@@ -15,3 +15,13 @@ export function updateTicketState(ticketState) {
     ticketState,
   }
 }
+
+export function updateState(field) {
+  switch(field) {
+    case 'type':
+      return updateTicketType;
+
+    case 'state':
+      return updateTicketState;
+  };
+}
