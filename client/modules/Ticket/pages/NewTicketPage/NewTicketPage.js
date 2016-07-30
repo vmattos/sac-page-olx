@@ -4,10 +4,29 @@ import { connect } from 'react-redux';
 import NewTicketForm from '../../NewTicketForm/NewTicketForm';
 
 class NewTicketPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(e.nativeEvent)
+  }
+
+  handleSelect(e) {
+    const target = e.nativeEvent.target
+    console.log(target.name, target.value)
+  }
+
   render() {
     return (
       <div>
-        <NewTicketForm />
+        <NewTicketForm
+          handleSubmit={ this.handleSubmit }
+          handleSelect={ this.handleSelect }
+        />
       </div>
     );
   }
