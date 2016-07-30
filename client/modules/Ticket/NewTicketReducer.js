@@ -1,4 +1,7 @@
-import { UPDATE_TICKET_TYPE } from './NewTicketActions';
+import {
+    UPDATE_TICKET_TYPE,
+    UPDATE_TICKET_STATE,
+  } from './NewTicketActions';
 
 const initialState = {}
 
@@ -9,6 +12,12 @@ const NewTicketReducer = (state = initialState, action) => {
       return {
         ...state,
         type: action.ticketType,
+      };
+
+    case UPDATE_TICKET_STATE:
+      return {
+        ...state,
+        type: action.ticketState,
       };
 
     default:
