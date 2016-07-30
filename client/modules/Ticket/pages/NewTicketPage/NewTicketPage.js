@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
+import { updateTicketType } from '../../NewTicketActions';
+
 import NewTicketForm from '../../NewTicketForm/NewTicketForm';
 
 class NewTicketPage extends Component {
@@ -8,6 +10,7 @@ class NewTicketPage extends Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   handleSubmit(e) {
@@ -18,12 +21,14 @@ class NewTicketPage extends Component {
   handleSelect(e) {
     const target = e.nativeEvent.target
     console.log(target.name, target.value)
+    this.props.dispatch(updateTicketType(target.value))
   }
 
   render() {
     return (
       <div>
         <NewTicketForm
+          type={ this.props.type }
           handleSubmit={ this.handleSubmit }
           handleSelect={ this.handleSelect }
         />
@@ -33,7 +38,9 @@ class NewTicketPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    type: state.type,
+  };
 }
 
 NewTicketPage.propTypes = {
