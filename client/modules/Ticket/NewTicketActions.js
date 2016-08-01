@@ -34,16 +34,9 @@ export function updateTicketDetails(details) {
 
 export function updateState(field) {
   switch(field) {
-    case 'type':
-      return updateTicketType;
-
-    case 'state':
-      return updateTicketState;
-
-    case 'reason':
-      return updateTicketReason;
-
-    case 'details':
-      return updateTicketDetails;
+    case 'type':    return updateTicketType;
+    case 'state':   return updateTicketState;
+    case 'reason':  return updateTicketReason;
+    case 'details': return updateTicketDetails;
   };
 }
