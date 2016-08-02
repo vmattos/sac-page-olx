@@ -7,7 +7,7 @@ export const API_URL = (function getApiUrl() { // eslint-disable-line
   if (isServer || isTest) {
     return process.env.BASE_URL || (`http://localhost:${process.env.PORT || Config.port}/api`);
   }
-  return '/api';
+  return '/api/v1';
 })();
 
 export default function callApi(endpoint, method = 'get', body) {
