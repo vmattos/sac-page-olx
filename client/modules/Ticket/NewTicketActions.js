@@ -1,3 +1,4 @@
+import callApi from '../../util/apiCaller';
 
 export const UPDATE_TICKET_TYPE = 'UPDATE_TICKET_TYPE';
 export const UPDATE_TICKET_STATE = 'UPDATE_TICKET_STATE';
@@ -39,4 +40,13 @@ export function updateState(field) {
     case 'reason':  return updateTicketReason;
     case 'details': return updateTicketDetails;
   };
+}
+
+export function postForm(body) {
+  const endpoint = '/ticket/new';
+  return (dispatch) => {
+    return callApi(endpoint, 'post', body).then(res => {
+      console.log(res)
+    })
+  }
 }
