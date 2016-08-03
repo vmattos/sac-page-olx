@@ -2,8 +2,10 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateState } from '../../NewTicketActions';
+import { fetchForm } from '../../NewTicketFormActions';
 
-import NewTicketForm from '../../NewTicketForm/NewTicketForm';
+import NewTicketForm from '../../components/NewTicketForm/NewTicketForm';
+
 
 class NewTicketPage extends Component {
   constructor(props) {
@@ -11,6 +13,10 @@ class NewTicketPage extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
+  }
+
+  componentWillMount() {
+    this.props.dispatch(fetchForm());
   }
 
   handleSubmit(e) {
@@ -27,6 +33,7 @@ class NewTicketPage extends Component {
     return (
       <div>
         <NewTicketForm
+          form={ this.props.form }
           type={ this.props.type }
           handleSubmit={ this.handleSubmit }
           handleSelect={ this.handleSelect }
@@ -39,6 +46,7 @@ class NewTicketPage extends Component {
 function mapStateToProps(state) {
   return {
     type: state.type,
+    form: state.newTicketForm,
   };
 }
 
