@@ -1,4 +1,5 @@
 import callApi from '../../util/apiCaller';
+import { loadState } from './NewTicketActions';
 
 export const MOUNT_FORM = 'MOUNT_FORM';
 
@@ -14,6 +15,7 @@ export function fetchForm() {
   return (dispatch) => {
     return callApi(endpoint).then(res => {
       dispatch(mountForm(res));
+      dispatch(loadState(res));
     });
   }
 }
