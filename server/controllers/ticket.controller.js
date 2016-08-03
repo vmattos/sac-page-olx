@@ -8,7 +8,6 @@ export function newTicketForm(req, res) {
     }
 
     const ticketForm = new TicketForm(doc);
-    console.log(doc)
     res.json(ticketForm.buildForm());
   });
 }
