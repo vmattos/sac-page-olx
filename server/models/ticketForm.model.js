@@ -1,15 +1,19 @@
 
 class TicketForm {
+  constructor(form) {
+    this.form = form;
+  }
+
   get types() {
-    return ['Telefone', 'Chat', 'Email'];
+    return this.form.types;
   }
 
   get states() {
-    return ['RJ', 'SP'];
+    return this.form.states;
   }
 
   get reasons() {
-    return ['Dúvidas', 'Elogios'];
+    return this.form.reasons;
   }
 
   get details() {

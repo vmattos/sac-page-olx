@@ -1,6 +1,14 @@
 import TicketForm from '../models/ticketForm.model';
+import ticketFormDao from '../db/ticketForm.dao';
 
 export function newTicketForm(req, res) {
-  const ticketForm = new TicketForm();
-  res.json(ticketForm.buildForm());
+  ticketFormDao.getForm(function(err, doc) {
+    if(err) {
+      return next(err);
+    }
+
+    const ticketForm = new TicketForm(doc);
+    console.log(doc)
+    res.json(ticketForm.buildForm());
+  });
 }
