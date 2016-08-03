@@ -54,7 +54,7 @@ export function updateState(field) {
 }
 
 export function postForm(body) {
-  const endpoint = '/ticket/new';
+  const endpoint = 'ticket';
   return (dispatch) => {
     return callApi(endpoint, 'post', body).then(res => {
       console.log(res)
