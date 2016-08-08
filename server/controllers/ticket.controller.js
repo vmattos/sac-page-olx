@@ -25,3 +25,13 @@ export function newTicket(req, res) {
     res.status(201).json(doc);
   });
 }
+
+export function listTickets(req, res) {
+  ticketDao.getTickets(function(err, docs){
+    if(err) {
+      return next(err);
+    }
+
+    res.json(docs);
+  });
+}
