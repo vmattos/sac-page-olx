@@ -3,15 +3,18 @@ import { connect } from 'react-redux';
 
 import { fetchTickets } from '../../TicketListActions';
 
+import TicketList from '../../components/TicketList/TicketList';
+
 class TicketListPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchTickets());
   }
 
   render() {
+    const { tickets } = this.props;
+
     return (
-      <div>
-      </div>
+      <TicketList tickets={ tickets } />
     );
   }
 }
