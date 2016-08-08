@@ -4,34 +4,34 @@ import ticketFormDao from '../db/ticketForm.dao';
 import ticketDao from '../db/ticket.dao';
 
 export function newTicketForm(req, res, next) {
-  ticketFormDao.getForm(function(err, doc) {
+  ticketFormDao.getForm(function(err, formData) {
     if(err) {
       return next(err);
     }
 
-    const ticketForm = new TicketForm(doc);
+    const ticketForm = new TicketForm(formData);
     res.json(ticketForm.buildForm());
   });
 }
 
-export function newTicket(req, res) {
+export function newTicket(req, res, next) {
   const ticket = new Ticket(req.body);
-  ticketDao.persist(ticket, function(err, doc) {
+  ticketDao.persist(ticket, function(err, ticketData) {
     if(err) {
       return next(err);
     }
 
-    delete doc._id;
-    res.status(201).json(doc);
+    delete ticketData._id;
+    res.status(201).json(ticketData);
   });
 }
 
-export function listTickets(req, res) {
-  ticketDao.getTickets(function(err, docs){
+export function listTickets(req, res, next) {
+  ticketDao.getTickets(function(err, tickets){
     if(err) {
       return next(err);
     }
 
-    res.json(docs);
+    res.json(tickets);
   });
 }
