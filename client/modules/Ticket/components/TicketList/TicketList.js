@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TicketListItem from '../TicketListItem/TicketListItem';
+
 class TicketList extends Component {
 
   render() {
@@ -9,14 +11,10 @@ class TicketList extends Component {
       <div>
         {
           tickets.map((ticket, i) => (
-            <div>
-            <p>{ ticket.type }</p>
-            <p>{ ticket.state }</p>
-            <p>{ ticket.reasons }</p>
-            <p>{ ticket.details }</p>
-            <p>{ ticket.details }</p>
-            <p>{ ticket.date }</p>
-            </div>
+            <TicketListItem
+              ticket={ ticket }
+              key={ i }
+            />
           ))
         }
       </div>
