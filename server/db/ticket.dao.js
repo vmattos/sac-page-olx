@@ -9,6 +9,10 @@ class TicketDao {
   persist(ticket, callback) {
     db.insert(ticket, callback);
   }
+
+  getTickets(callback) {
+    db.find({}, callback);
+  }
 }
 
 export default new TicketDao();

@@ -4,6 +4,8 @@ const router = new Router();
 
 router.route('/ticket/newTicketForm').get(TicketController.newTicketForm);
 
-router.route('/ticket/').post(TicketController.newTicket);
+router.route('/ticket/')
+  .get(TicketController.listTickets)
+  .post(TicketController.newTicket);
 
 export default router;

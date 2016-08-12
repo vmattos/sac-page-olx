@@ -30,9 +30,8 @@ import Helmet from 'react-helmet';
 // Import required modules
 import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
-import serverConfig from './config';
-
 import tickets from './routes/tickets.routes';
+import serverConfig from './config';
 
 app.use(compression());
 app.use(bodyParser.json({ limit: '20mb' }));
