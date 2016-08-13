@@ -2,9 +2,10 @@ import test from 'ava';
 import mock from 'mock-require';
 
 import ticketFormDaoMock from './mocks/ticketFormDao.mock';
+import ticketDaoMock from './mocks/ticketDao.mock';
 import TicketController from '../ticket.controller'
 
-const ticketController = new TicketController(ticketFormDaoMock, null);
+const ticketController = new TicketController(ticketFormDaoMock, ticketDaoMock);
 
 test.serial('newTicketForm should return form fields', t => {
   const req = {},
@@ -17,4 +18,19 @@ test.serial('newTicketForm should return form fields', t => {
     }
 
   ticketController.newTicketForm(req, res, null);
+});
+
+test.serial('newTicket should return a 201 status', t => {
+  const req = {
+    body: {}
+  };
+  const res = {
+      status: function(code) {
+        t.is(code, 201);
+        return this;
+      },
+      json: function(){},
+    }
+
+    ticketController.newTicket(req, res, null);
 });
