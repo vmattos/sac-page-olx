@@ -7,7 +7,7 @@ import TicketController from '../ticket.controller'
 
 const ticketController = new TicketController(ticketFormDaoMock, ticketDaoMock);
 
-test.serial('newTicketForm should return form fields', t => {
+test('newTicketForm should return form fields', t => {
   const req = {},
     res = {
       json: function(json) {
@@ -20,7 +20,7 @@ test.serial('newTicketForm should return form fields', t => {
   ticketController.newTicketForm(req, res, null);
 });
 
-test.serial('newTicket should return a 201 status', t => {
+test('newTicket should return a 201 status', t => {
   const req = {
     body: {}
   };
