@@ -39,3 +39,17 @@ test('UPDATE_TICKET_TYPE should return actual state with updated ticket type', t
     type: 'foo',
   })
 })
+
+test('UPDATE_TICKET_STATE should return actual state with updated ticket state', t => {
+  const action = {
+    type: NewTicketActions.UPDATE_TICKET_STATE,
+    ticketState: 'foo',
+  }
+
+  const state = NewTicketReducer(initialState, action);
+  t.deepEqual(state, {
+    ...initialState,
+    state: 'foo',
+  })
+})
+
