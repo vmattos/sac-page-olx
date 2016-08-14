@@ -26,3 +26,16 @@ test('LOAD_STATE should return initial values for new ticket', t => {
     details: 'fubar',
   })
 })
+
+test('UPDATE_TICKET_TYPE should return actual state with updated ticket type', t => {
+  const action = {
+    type: NewTicketActions.UPDATE_TICKET_TYPE,
+    ticketType: 'foo',
+  }
+
+  const state = NewTicketReducer(initialState, action);
+  t.deepEqual(state, {
+    ...initialState,
+    type: 'foo',
+  })
+})
