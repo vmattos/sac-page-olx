@@ -45,3 +45,15 @@ test('updateTicketDetails should return an action with type UPDATE_TICKET_DETAIL
   t.is(action.details, 'foo');
 })
 
+test('updateState should act as an action selector', t => {
+  const updateTicketType = NewTicketActions.updateState('type');
+  const updateTicketState = NewTicketActions.updateState('state');
+  const updateTicketReason = NewTicketActions.updateState('reason');
+  const updateTicketDetails = NewTicketActions.updateState('details');
+
+  t.is(updateTicketType, NewTicketActions.updateTicketType);
+  t.is(updateTicketState, NewTicketActions.updateTicketState);
+  t.is(updateTicketReason, NewTicketActions.updateTicketReason);
+  t.is(updateTicketDetails, NewTicketActions.updateTicketDetails);
+})
+
