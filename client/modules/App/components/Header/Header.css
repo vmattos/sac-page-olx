@@ -1,5 +1,4 @@
 .header {
-  height: 80px;
   display: block;
 }
 
@@ -46,13 +45,13 @@
 
 @media (width <= 606px) {
   .header {
+    & .content {
+      & div {
+        text-align: center;
+        text-align: -webkit-center;
+      }
+    }
     min-height: 0;
     height: 200px;
-  }
-}
-
-@media (width <= 400px) {
-  .header {
-    height: 155px;
   }
 }
