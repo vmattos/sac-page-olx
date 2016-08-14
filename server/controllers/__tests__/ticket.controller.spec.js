@@ -34,3 +34,14 @@ test('newTicket should return a 201 status', t => {
 
     ticketController.newTicket(req, res, null);
 });
+
+test('listTickets should return a list of tickets', t => {
+  const req = {},
+    res = {
+      json: function(json) {
+        t.is(json.length, 1)
+      }
+    };
+
+    ticketController.listTickets(req, res, null);
+});
