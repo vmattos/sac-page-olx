@@ -12,7 +12,7 @@ export function Header(props, context) { // eslint-disable-line
   );
 
   return (
-    <Link className={styles.header} to="/">
+    <div className={styles.header}>
       <div className={styles['language-switcher']}>
         <ul>
           <li><FormattedMessage id="switchLanguage" /></li>
@@ -27,11 +27,11 @@ export function Header(props, context) { // eslint-disable-line
         </Col>
         <Col sm={6}>
           <h3 className={styles['site-subtitle']}>
-            <FormattedMessage id="subtitle" />
+            <Link className={styles.newTicket} to="/new">Inserir nova chamada</Link>
           </h3>
         </Col>
       </Row>
-    </Link>
+    </div>
   );
 }
 

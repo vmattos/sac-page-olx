@@ -18,11 +18,29 @@
   background-color: #ececec;
 
   & h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
     height: 70px;
     width: 70px;
     border-radius: 100%;
     text-indent: -9999px;
     background-image: url('./images/logo.png');
+  }
+
+  & .newTicket {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+    background-color: #F70;
+    text-decoration: none;
   }
 }
 
