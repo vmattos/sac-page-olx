@@ -66,3 +66,16 @@ test('UPDATE_TICKET_REASON should return actual state with updated ticket reason
   })
 })
 
+test('UPDATE_TICKET_DETAILS should return actual state with updated ticket details', t => {
+  const action = {
+    type: NewTicketActions.UPDATE_TICKET_DETAILS,
+    details: 'foo',
+  }
+
+  const state = NewTicketReducer(initialState, action);
+  t.deepEqual(state, {
+    ...initialState,
+    details: 'foo',
+  })
+})
+
