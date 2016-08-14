@@ -1,6 +1,4 @@
 .header {
-  border-bottom: 1px solid #ccc;
-  min-height: 200px;
   display: block;
 }
 
@@ -13,22 +11,47 @@
 }
 
 .content {
-  width: 100%;
-  max-width: 980px;
-  margin: auto;
-  padding: 64px 16px;
-  overflow: auto;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ececec;
+
+  & h1 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    text-indent: -9999px;
+    background-image: url('./images/logo.png');
+  }
+
+  & .newTicket {
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 2px;
+    font-weight: bold;
+    text-align: center;
+    color: #FFF;
+    background-color: #F70;
+    text-decoration: none;
+  }
 }
 
 @media (width <= 606px) {
   .header {
+    & .content {
+      & div {
+        text-align: center;
+        text-align: -webkit-center;
+      }
+    }
     min-height: 0;
     height: 200px;
-  }
-}
-
-@media (width <= 400px) {
-  .header {
-    height: 155px;
   }
 }
