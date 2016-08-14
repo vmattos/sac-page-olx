@@ -16,3 +16,10 @@ test('loadState should return an action with type LOAD_STATE and the starting va
   t.is(action.reason, 'BAZ');
   t.is(action.details, 'xpto');
 })
+
+test('updateTicketType should return an action with type UPDATE_TICKET_TYPE and the very ticketType', t => {
+  const ticketType = 'foo';
+  const action = NewTicketActions.updateTicketType(ticketType);
+  t.is(action.type, NewTicketActions.UPDATE_TICKET_TYPE);
+  t.is(action.ticketType, 'foo');
+})
