@@ -31,3 +31,10 @@ test('updateTicketState should return an action with type UPDATE_TICKET_STATE an
   t.is(action.ticketState, 'foo');
 })
 
+test('updateTicketReason should return an action with type UPDATE_TICKET_REASON and the very ticketReason', t => {
+  const ticketReason = 'foo';
+  const action = NewTicketActions.updateTicketReason(ticketReason);
+  t.is(action.type, NewTicketActions.UPDATE_TICKET_REASON);
+  t.is(action.reason, 'foo');
+})
+
